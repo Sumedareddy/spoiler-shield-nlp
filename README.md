@@ -2,6 +2,7 @@
 A prototype app for spoiler detection using NLP and contrastive learning
 **Detect spoilers in text comments using contrastive learning and sentence embeddings.**
 
+---
 
 ## Overview
 
