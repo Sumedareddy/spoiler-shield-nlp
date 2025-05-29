@@ -1,4 +1,8 @@
-streamlit
-transformers
-torch
+asyncpraw
+nest_asyncio
 pandas
+nltk
+sentence-transformers
+torch
+scikit-learn
+streamlit
