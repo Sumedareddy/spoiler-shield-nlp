@@ -8,48 +8,46 @@ tags:
 - loss:CosineSimilarityLoss
 base_model: distilbert/distilbert-base-uncased
 widget:
-- source_sentence: people forgot thats locke thoughits easy forget every character
-    show knowing longer locke still calls locke strange
+- source_sentence: biggest problem felt like captain marvel story incredibly personal
+    carol yet movie tells pretty quickly without much detail id loved movie carol
+    defeating supreme intelligence helping musical planet technically marrying prince
   sentences:
-  - whole episode long setup wordplay end
-  - feel like second last season puttered around last season raced finish instead
-    taking time give satisfying answers mysteries introduced earlierbased work damon
-    lindelof clearly doesnt mind stories leave lot questions unanswered
-  - white christmas one christmas stuff goes san junipero san junipero lol
-- source_sentence: episode ought meme
+  - akin saying didnt laugh didnt get joke maybe joke wasnt good
+  - ending awesome revelation relatively easily predictable endingare talking song
+  - muse dude anything might become one victims seeing already made contact
+- source_sentence: spoiler mickey came back married martha jones
   sentences:
-  - yet hands marta empty plate like shes servant right says shows family cares immigrants
-    refugees inheritance threatened
-  - loved every season didnt think last season confusing
-  - shameless specifically pilot shot shotword word remake pilot episode british version
-    show goes completely different direction become black comedydrama known quickly
-- source_sentence: moment pauses shakes head causes kate shoot herthat moment made
-    sad shows going cheesy like
+  - think namor tied similar situation hulk stuck universal reason guess fixed got
+    back
+  - bounced black mirror times watching san junipero first rest season got hooked
+    episode san junipero well worth anyones time whether intend watch episodes
+  - shows iron man suit cg dc blue beetle suit leaks spoilers
+- source_sentence: son winds framed terrorism loses company thanks avatar father girlfriend
   sentences:
-  - yes juniper ends happy note whatever dont watch playtest ending one fucked gotta
-    go call mom
-  - thought cronenberg couldnt get fucked scanners get videodrome fly dead ringersand
-    fucked bar gets raised pretty high watch man disassemble fish dinner build meat
-    gun fires human teeth
-  - see mom called revealed crime really thought trolls framed doesnt appear consensus
-    really actions make sense didnt frame
-- source_sentence: ellie wasnt coping couldnt embrace life thats leave journals filled
-    pretty dark shit give insight mental state hard call happy loves dina course wasnt
-    realistically going able let go
+  - loved sadly popular opinion scene forced relive actually done devastating
+  - probably sooner think considering one literally first relationship ever habit
+    getting tired people
+  - yeah first even thought maybe said ruin sunk actually happened made sense considering
+    complied even extreme situations felt kinda cheap
+- source_sentence: oh man missed beautiful connection tie together yes gets complicated
+    ending might change lot complaintstime travel exists create paradox powered human
+    suffering reverse one event conclusion reached events people caused paradox cease
+    exist
   sentences:
-  - interview someone said whole dead whole time lindelof spent rest interview telling
-    guy wrong alive addressed direct doesnt brush
-  - white bear great ending found first episode really boring repetitive
-  - wonder would consider leaving pitt set even momentarily idk thatll make sense
-    like robbie gone pitt fest jake hed scene treating people wed follow go back pitt
-    someones truck ambulance something
-- source_sentence: wakes ever interact one wasnt drowned exact copy copy wasnt drowned
-    copy copy wasnt drowned copy copy wasnt drowned
+  - hey gbgg ive removed comment used spoiler tag isnt supported everyone reddithowever
+    reddit recently announced spoiler format supported everyone use like spoiler goes
+    feel free resubmit comment new spoiler tag thanksi bot action performed automatically
+    please contact moderators subredditmessagecomposetormoviedetails questions concerns
+  - fuck yes mods
+  - think may talking specific example yes kind ruined episode interested show severance
+    trigger warning card said something like episode depicts suicide definitely took
+    edge scene happens
+- source_sentence: leader groups name literally shepherd always leading theory
   sentences:
-  - first season lost represents lack payoff
-  - recently rewatched show seeing explicitly say werent dead whole time bunch people
-    saying exact opposite using bash show kinda frustrating
-  - oh god hate recommending alreadythank
+  - gathered debating seems lot people kind put universe trouble relating itso would
+    prefer episodes like entire history setting lot closer everyday life
+  - loved shut dance im watching entire episode going going thru holy crap
+  - tried watching ages ago several seasons binging makes problems show even obvious
 pipeline_tag: sentence-similarity
 library_name: sentence-transformers
 ---
@@ -103,9 +101,9 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("sentence_transformers_model_id")
 # Run inference
 sentences = [
-    'wakes ever interact one wasnt drowned exact copy copy wasnt drowned copy copy wasnt drowned copy copy wasnt drowned',
-    'first season lost represents lack payoff',
-    'oh god hate recommending alreadythank',
+    'leader groups name literally shepherd always leading theory',
+    'gathered debating seems lot people kind put universe trouble relating itso would prefer episodes like entire history setting lot closer everyday life',
+    'tried watching ages ago several seasons binging makes problems show even obvious',
 ]
 embeddings = model.encode(sentences)
 print(embeddings.shape)
@@ -165,13 +163,13 @@ You can finetune this model on your own dataset.
   |         | sentence_0                                                                         | sentence_1                                                                         | label                                                          |
   |:--------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:---------------------------------------------------------------|
   | type    | string                                                                             | string                                                                             | float                                                          |
-  | details | <ul><li>min: 3 tokens</li><li>mean: 30.62 tokens</li><li>max: 128 tokens</li></ul> | <ul><li>min: 3 tokens</li><li>mean: 28.61 tokens</li><li>max: 128 tokens</li></ul> | <ul><li>min: 0.0</li><li>mean: 0.66</li><li>max: 1.0</li></ul> |
+  | details | <ul><li>min: 3 tokens</li><li>mean: 31.57 tokens</li><li>max: 128 tokens</li></ul> | <ul><li>min: 3 tokens</li><li>mean: 27.73 tokens</li><li>max: 128 tokens</li></ul> | <ul><li>min: 0.0</li><li>mean: 0.67</li><li>max: 1.0</li></ul> |
 * Samples:
-  | sentence_0                                                                                                                                                                              | sentence_1                                                                                                                                                                                                                                                                                | label            |
-  |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|
-  | <code>guardians getting pretty happy ending find love happiness ways finally realize much mean happy ending didnt know needed</code>                                                    | <code>nah started little baby steps like male victim stalking strong female characters went fullon cuckholdryjustifyingrichheiressinartsdegreewomencandonowrongthefirstdateconversationlevels wokei couldnt watch past se ben confession dont know far rabbit hole goes gonna find</code> | <code>1.0</code> |
-  | <code>gravity falls almost didnt watch cutesy esthetic omg good starts everything seems simple deep puddle end whole world twisted warped interdimensional demon everything fire</code> | <code>episodes literally americanised still british particularly hated nation shut dance though less</code>                                                                                                                                                                               | <code>0.0</code> |
-  | <code>maybe paint goes missing able call least though definitely didnt get exactly couple things didnt add also didnt account additional murders</code>                                 | <code>would like star wars never talking force except use benefit didnt know force someone pointed star ship magically lifted swamp might also questions exactly star wars prephantom menace anyways</code>                                                                               | <code>0.0</code> |
+  | sentence_0                                                                                                                                                                                                                         | sentence_1                                                                                                                        | label            |
+  |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:-----------------|
+  | <code>according rumours doctor strange taken illuminati mcu council highly intelligent influential people across multiverse one version iron man based superior iron man series evil version tony used genius enslave world</code> | <code>one assumes like background actors things made reality really baby manifestation lacks consciousness kid wasnt lucky</code> | <code>0.0</code> |
+  | <code>putting sayid blonde chick together everyone could paired ffs</code>                                                                                                                                                         | <code>ben wasnt getting instructions anyone made hence shocked locke actually sawheard someone cabin</code>                       | <code>1.0</code> |
+  | <code>agree talking eternity cant drive around open top jeep every day think quagmire important part episode everyone ends matter timeand infinite amount</code>                                                                   | <code>rose bernard church sat lefthad actors available</code>                                                                     | <code>1.0</code> |
 * Loss: [<code>CosineSimilarityLoss</code>](https://sbert.net/docs/package_reference/sentence_transformer/losses.html#cosinesimilarityloss) with these parameters:
   ```json
   {
