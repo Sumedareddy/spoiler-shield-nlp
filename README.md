@@ -133,12 +133,10 @@ print(f"Prediction: {label} (confidence {score:.2f})")
 
 | Metric    | Value |
 | --------- | ----- |
-| Accuracy  | \~XX% |
-| Precision | \~XX% |
-| Recall    | \~XX% |
-| F1-score  | \~XX% |
-
-(*Replace XX with your actual evaluation results*)
+| Accuracy  | 79.3% |
+| Precision | 82.6% |
+| Recall    | 87.3% |
+| F1-score  | 84.9% |
 
 ---
 
@@ -157,4 +155,3 @@ MIT License © 2025 Sumeda Reddy
 
 ---
 
-If you want, I can generate a `requirements.txt` file or a quick-start notebook too. Would you like that?
