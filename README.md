@@ -155,3 +155,204 @@ MIT License © 2025 Sumeda Reddy
 
 ---
 
+# Spoiler Shield NLP 🚫🗣️
+
+**An NLP-based spoiler detection system using contrastive learning and transformer embeddings on Reddit comments.**
+
+Spoiler Shield automatically identifies and classifies spoiler content in user-generated movie and television discussions. Built with Reddit data, Sentence-BERT, and contrastive learning, it can be used interactively via a Streamlit web app.
+
+---
+
+## 📌 Table of Contents
+
+* [Problem Statement](#problem-statement)
+* [Solution Approach](#solution-approach)
+* [Features](#features)
+* [Pipeline Overview](#pipeline-overview)
+* [Dataset](#dataset)
+* [Model Training](#model-training)
+* [Evaluation Results](#evaluation-results)
+* [Live Demo](#live-demo)
+* [Installation](#installation)
+* [Usage](#usage)
+* [References](#references)
+
+---
+
+## 🔍 Problem Statement
+
+Social media platforms are flooded with spoiler-laden comments that can ruin the experience for users who haven't seen a film or show yet. Spoiler Shield aims to detect these spoilers automatically by distinguishing them from general discussions using semantic similarity and machine learning.
+
+---
+
+## 🧠 Solution Approach
+
+* Scrape Reddit comments from spoiler-heavy subreddits
+* Preprocess and clean the data (remove spoiler tags, punctuation, and stopwords)
+* Use **contrastive learning** to structure spoiler/non-spoiler representations
+* Train a **Sentence-BERT model** with cosine similarity loss
+* Build a **real-time prediction interface** using Streamlit
+
+---
+
+## 🚀 Features
+
+* ✅ Automated Reddit data collection (spoiler & non-spoiler balanced)
+* ✅ Preprocessing pipeline with NLTK
+* ✅ Sentence embedding training using `distilbert-base-uncased`
+* ✅ Real-time spoiler classification using cosine similarity to anchor embeddings
+* ✅ Deployment-ready via Streamlit + pyngrok
+* ✅ Supports interactive testing for user-entered text
+
+---
+
+## 🔄 Pipeline Overview
+
+```
+Reddit Scraper (asyncpraw)
+        ↓
+Raw Comment Dataset (.csv)
+        ↓
+Text Preprocessing (NLTK, Regex)
+        ↓
+Contrastive Pair Generation
+        ↓
+Sentence-BERT Training (CosineSimilarityLoss)
+        ↓
+Embedding Analysis & Model Evaluation
+        ↓
+Real-Time Prediction Web App (Streamlit)
+```
+
+---
+
+## 📂 Dataset
+
+Collected from Reddit using the following subreddits:
+
+* `r/movies`
+* `r/television`
+* `r/marvelstudios`
+* `r/MovieDetails`
+
+Spoiler comments were identified using `>!spoiler!<` markdown syntax. Cleaned dataset includes:
+
+| Filename                     | Description                     |
+| ---------------------------- | ------------------------------- |
+| `spoiler_shield_dataset.csv` | Raw labeled comments            |
+| `spoiler_shield_cleaned.csv` | Preprocessed comments (cleaned) |
+
+---
+
+## 🏋️‍♂️ Model Training
+
+* **Architecture:** Sentence-BERT (Siamese Transformer)
+* **Base Model:** `distilbert-base-uncased`
+* **Loss Function:** CosineSimilarityLoss
+* **Batch Size:** 16
+* **Epochs:** 3
+
+Positive and negative pairs were used for contrastive learning:
+
+* Positive: Same label (spoiler–spoiler or non-spoiler–non-spoiler)
+* Negative: Mixed label (spoiler vs non-spoiler)
+
+---
+
+## 📊 Evaluation Results
+
+| Metric    | Score |
+| --------- | ----- |
+| Accuracy  | 0.865 |
+| Precision | 0.872 |
+| Recall    | 0.857 |
+| F1-Score  | 0.864 |
+
+Cosine similarity distributions and t-SNE embeddings confirm that the model effectively separates spoiler from non-spoiler comments.
+
+To visualize training loss, similarity scores, and embeddings, use the provided Jupyter/Colab-ready scripts under the `graphs/` section of the repo.
+
+---
+
+## 🌐 Live Demo
+
+A **Streamlit interface** allows real-time prediction:
+
+```bash
+streamlit run app.py
+```
+
+Example Output:
+
+* **Input**: "He dies in the end"
+* **Prediction**: Spoiler
+* **Spoiler Similarity**: 0.68
+* **Non-Spoiler Similarity**: 0.45
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/your-username/spoiler-shield-nlp.git
+cd spoiler-shield-nlp
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Optional: Enable ngrok for demo deployment
+pip install pyngrok
+```
+
+---
+
+## 🧪 Usage
+
+### 🟢 Train Model
+
+```python
+# Inside training script or notebook
+model.fit(...)
+model.save("spoiler-shield-contrastive-model")
+```
+
+### 🟢 Predict Spoiler
+
+```python
+from inference import predict_spoiler
+
+comment = "This twist at the end shocked everyone!"
+result = predict_spoiler(comment)
+print(result)
+```
+
+### 🟢 Run Web App
+
+```bash
+streamlit run app.py
+```
+
+---
+
+## 📚 References
+
+* [Sentence-BERT: EMNLP 2019](https://arxiv.org/abs/1908.10084)
+* [BERT for Spoiler Detection: IEEE Access](https://ieeexplore.ieee.org/document/9157670)
+* [asyncpraw Documentation](https://praw.readthedocs.io/)
+* [NLTK Stopwords](https://www.nltk.org/)
+* [Streamlit](https://streamlit.io/)
+* [Hugging Face Transformers](https://huggingface.co/transformers/)
+
+---
+
+## 📌 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 🙌 Acknowledgments
+
+Special thanks to the open-source community and academic researchers whose work inspired this project.
+
+
