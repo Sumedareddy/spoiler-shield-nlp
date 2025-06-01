@@ -1,0 +1,7 @@
+asyncpraw==7.6.4
+nest_asyncio==1.5.6
+pandas==2.0.3
+nltk==3.8.1
+sentence-transformers==2.2.2
+torch==2.0.1
+scikit-learn==1.2.2
