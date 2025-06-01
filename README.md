@@ -102,7 +102,7 @@ Use the `.ipynb` notebook to:
 * Generate contrastive pairs
 * Train the model with cosine similarity loss
 
-The trained model is saved in `spoiler-shield-contrastive-model/`.
+The trained model is saved in `model/spoiler-shield-contrastive-model`.
 
 ### 3. Launch Web App
 
