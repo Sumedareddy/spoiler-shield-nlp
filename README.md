@@ -53,20 +53,25 @@ Step 1: Data Collection (Reddit Scraper)
 * A balanced dataset of 1000 spoiler and 1000 non-spoiler comments is saved in:
     * data/spoiler_shield_dataset.csv
  <br>
- Step 2: Text Preprocessing
+ 
+Step 2: Text Preprocessing
 * Performed using nltk and re:
     * Markdown tags removed (>!spoiler!<)
     * Lowercasing, punctuation and stopword removal
 * Resulting dataset saved in:
     * data/spoiler_shield_cleaned.csv 
 Cleaned comments are used for both training and embedding generation.
+
 <br>
+
 Step 3: Contrastive Learning Dataset Preparation
 * From the cleaned data, comment pairs are generated as:
     * Positive pairs: both spoiler or both non-spoiler
     * Negative pairs: one spoiler, one non-spoiler
 * Up to 2000 training pairs are created using sentence-transformers.InputExample
+  
 <br>
+
 Step 4: Model Training (Sentence-BERT)
 * Pretrained transformer: distilbert-base-uncased
 * Contrastive learning using CosineSimilarityLoss
@@ -75,12 +80,16 @@ Step 4: Model Training (Sentence-BERT)
     * 3 epochs
     * Model saved to:
         * model/spoiler-shield-contrastive-model/
+          
 <br>
+
 Step 5: Semantic Embedding & Anchor Generation
 * Trained model is used to embed all spoiler and non-spoiler comments.
 * Mean vector for each class is computed as its anchor.
 * Anchors saved using PyTorch for real-time use.
+  
 <br>
+
 Step 6: Evaluation
 * A test set of 300 spoiler and 300 non-spoiler samples was used to evaluate the trained model.
 * Cosine similarity between embedded comment pairs was used to classify them as similar (same class) or dissimilar (opposite class).
@@ -93,6 +102,7 @@ Step 6: Evaluation
 | Recall    | 86.0% |
 | F1-Score  | 81.3% |
 
+---
 
 ## Key Visualizations (from report)
 
